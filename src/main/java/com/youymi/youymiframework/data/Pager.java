@@ -6,12 +6,15 @@ public class Pager implements Serializable {
 
 	/**
 	 * 分页实体
-	 * 从 1 开始 ...
+	 * pageIndex 从 1 开始 ...
 	 * 默认 每页 10条 
 	 * 
 	 */
 	private static final long serialVersionUID = 7758990959529311865L;
 	private int pageIndex;
+	/**
+	 * 每页长度
+	 */
 	private int pageSize;
 
 	public Pager() {
@@ -62,5 +65,10 @@ public class Pager implements Serializable {
 			return 0;
 		}
 		return (pageIndex - 1) * pageSize;
+	}
+	
+	public int getPageEnd() {
+		 
+		return getPageBegin() + pageSize;
 	}
 }
